@@ -5,7 +5,7 @@ const port = 3000;
 app.use(express.static('public'));
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/public/control-panel.html');
+    res.sendFile(__dirname + '/public/controle-nivel.html');
 });
 
 app.listen(port, () => {
