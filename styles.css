@@ -34,6 +34,11 @@ logo-container {
     margin-top: 50px;
 }
 
+.responsive-img {
+        width: 100%;
+        height: auto;
+}
+
 logo-container img {
     width: 350px;
     height: auto;
