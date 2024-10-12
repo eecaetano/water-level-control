@@ -1,10 +1,12 @@
 {
-  "dependencies": {
-    "express": "^4.19.2",
-    "http-server": "^14.1.1"
-  },
+  "name": "water-level-control",
+  "version": "1.0.0",
+  "description": "Sistema de controle de nível de caixas d'água",
+  "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js"
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
   }
 }
