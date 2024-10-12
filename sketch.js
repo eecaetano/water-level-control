@@ -43,6 +43,8 @@ function updateWaterLevel() {
         const currentVolume = (waterLevel / maxWaterLevel) * maxWaterVolume;
         if (currentVolume <= maxWaterVolume / 2) {
             document.getElementById('attention-alert').style.display = 'block';
+        } else {
+            document.getElementById('attention-alert').style.display = 'none';
         }
 
         logWaterLevel(currentVolume);
