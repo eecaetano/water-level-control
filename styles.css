@@ -34,12 +34,12 @@ logo-container {
     margin-top: 50px;
 }
 
-.logo-container img {
+logo-container img {
     width: 350px;
     height: auto;
 }
 
-.logo-container button {
+logo-container button {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
