@@ -1,8 +1,8 @@
-let waterLevel = 200; // Initial water level in pixels
-const maxWaterLevel = 200; // Maximum water level in pixels
-const minWaterLevel = 5; // Minimum water level in pixels
-const waterLossSequence = [10, 5, 15, 30, 35, 25, 25, 10, 15, 5]; // Water loss sequence in pixels
-const maxWaterVolume = 2000; // Maximum water volume in liters
+let waterLevel = 200; // Nível inicial da água em pixels
+const maxWaterLevel = 200; // Nível máximo da água em pixels
+const minWaterLevel = 5; // Nível mínimo da água em pixels
+const waterLossSequence = [10, 5, 15, 30, 35, 25, 25, 10, 15, 5]; // Sequência de perda de água em pixels
+const maxWaterVolume = 2000; // Volume máximo de água em litros
 let elapsedTime = 0;
 let intervalId;
 let sequenceIndex = 0;
@@ -11,10 +11,10 @@ let isPaused = false;
 function setup() {
     noCanvas();
     setTimeout(() => {
-        waterLevel -= 20; // Initial 200ml loss after 30 seconds
+        waterLevel -= 20; // Perda inicial de 200ml após 30 segundos
         updateWaterDisplay();
-        intervalId = setInterval(updateWaterLevel, 90000); // 90 seconds interval
-    }, 30000); // 30 seconds delay
+        intervalId = setInterval(updateWaterLevel, 90000); // Intervalo de 90 segundos
+    }, 30000); // Atraso de 30 segundos
     setInterval(updateClock, 1000);
 
     document.getElementById('pause-button').addEventListener('click', togglePause);
@@ -28,24 +28,20 @@ function updateWaterLevel() {
             waterLevel -= waterLossSequence[sequenceIndex];
             sequenceIndex++;
         } else {
-            waterLevel -= 5; // Default loss if sequence is exhausted
+            waterLevel -= 5; // Perda padrão se a sequência estiver esgotada
         }
 
         if (waterLevel <= minWaterLevel) {
             waterLevel = minWaterLevel;
-            document.getElementById('alert').style.display = 'block';
+            registrarAlerta('Nível de água baixo!');
             clearInterval(intervalId);
-        } else {
-            document.getElementById('alert').style.display = 'none';
         }
 
         updateWaterDisplay();
 
         const currentVolume = (waterLevel / maxWaterLevel) * maxWaterVolume;
         if (currentVolume <= maxWaterVolume / 2) {
-            document.getElementById('attention-alert').style.display = 'block';
-        } else {
-            document.getElementById('attention-alert').style.display = 'none';
+            registrarAlerta('Atenção! Nível de água em 50%!');
         }
 
         logWaterLevel(currentVolume);
@@ -73,8 +69,19 @@ function logWaterLevel(currentVolume) {
     const newRow = tableBody.insertRow();
     const timeCell = newRow.insertCell(0);
     const levelCell = newRow.insertCell(1);
+    const alertCell = newRow.insertCell(2);
     timeCell.innerText = document.getElementById('clock').innerText;
     levelCell.innerText = `${currentVolume.toFixed(2)}L`;
+    alertCell.innerText = ''; // Inicialmente vazio, será preenchido se houver alerta
+}
+
+function registrarAlerta(alerta) {
+    const tableBody = document.getElementById('log-table').getElementsByTagName('tbody')[0];
+    const lastRow = tableBody.rows[tableBody.rows.length - 1];
+    if (lastRow) {
+        const alertCell = lastRow.cells[2];
+        alertCell.innerText = alerta;
+    }
 }
 
 function togglePause() {
@@ -88,43 +95,15 @@ function resetSystem() {
     sequenceIndex = 0;
     isPaused = false;
     document.getElementById('pause-button').innerText = 'Interromper';
-    document.getElementById('alert').style.display = 'none';
-    document.getElementById('attention-alert').style.display = 'none';
     document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
     setTimeout(() => {
-        waterLevel -= 20; // Initial 200ml loss after 30 seconds
+        waterLevel -= 20; // Perda inicial de 200ml após 30 segundos
         updateWaterDisplay();
-        intervalId = setInterval(updateWaterLevel, 90000); // 90 seconds interval
-    }, 30000); // 30 seconds delay
+        intervalId = setInterval(updateWaterLevel, 90000); // Intervalo de 90 segundos
+    }, 30000); // Atraso de 30 segundos
 }
 
-// Função para imprimir os resultados na tela
 function imprimirResultados() {
-    const capacidadeReservatorio = 2000; // Capacidade do reservatório em litros
-    const resultados = [
-        { dataHora: "2024-10-12 10:00", alerta: "Nível de água baixo", volume: 1500 },
-        { dataHora: "2024-10-12 11:00", alerta: "Nível de água crítico", volume: 1400 },
-        { dataHora: "2024-10-12 12:00", alerta: "Nível de água crítico", volume: 1300 },
-    ];
-    const numeroAlertas = resultados.length;
-    const cidade = "São Paulo";
-    const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-
-    console.log("\n\n");
-    console.log("Caetano_AquaControl®".padStart(40));
-    console.log("Sistema de monitoramento de vasão experimental".padStart(50));
-    console.log("\nCONFIRA OS RESULTADOS\n".padStart(40));
-    console.log(`Capacidade do RESEVATÓRIO: ${capacidadeReservatorio} L\n`);
-    console.log("Data/Hora\t\t\tAlerta\t\t\tVolume de Água (L)");
-    console.log("-".repeat(70));
-    resultados.forEach(resultado => {
-        console.log(`${resultado.dataHora}\t${resultado.alerta}\t${resultado.volume}L`);
-    });
-    console.log("\n\n");
-    console.log("Obrigado por utilizar o AquaControl".padStart(70));
-    console.log(`${cidade}, ${dataAtual}`.padStart(70));
+    window.print();
 }
-
-// Inicializar o sistema
-setup();
