@@ -4,6 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Nível de Caixa D'Água</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1><strong>Caetano Aquacontrol</strong></h1><p><h2>Para reservatório experimental de 2000 L</h2></p>
+        <div id="water-level">
+            <div id="water"></div>
+        </div>
+        <div id="level-indicator">Nível: 2000L</div>
+        <div id="clock">Hora: 00:00</div>
+<br>
+        <div id="alert" class="alert">Nível de água baixo!</div>
+        <div id="attention-alert" class="attention-alert">Atenção! Nível de água em 50%!</div>
+        <table id="log-table">
+            <thead>
+                <tr>
+                    <th>Hora</th>
+                    <th>Nível de Água (L)</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        <button id="pause-button">Interromper</button>
+        <button id="reset-button">Reiniciar</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
+    <script src="js/sketch.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Controle de Nível de Caixa D'Água</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
