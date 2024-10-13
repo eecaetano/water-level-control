@@ -1,7 +1,7 @@
 let waterLevel = 2000; // Initial water level in pixels
-const maxWaterLevel = 200; // Maximum water level in pixels
+const maxWaterLevel = 2000; // Maximum water level in pixels
 const minWaterLevel = 5; // Minimum water level in pixels
-const waterLossSequence = [10, 5, 15, 30, 35, 25, 25, 10, 15, 5]; // Water loss sequence in pixels
+const waterLossSequence = [10, 5, 15, 20, 25, 10, 5, 10, 15, 5]; // Water loss sequence in pixels
 const maxWaterVolume = 2000; // Maximum water volume in liters
 let elapsedTime = 0;
 let intervalId;
@@ -11,7 +11,7 @@ let isPaused = false;
 function setup() {
     noCanvas();
     setTimeout(() => {
-        waterLevel -= 20; // Initial 200ml loss after 30 seconds
+        waterLevel -= 200; // Initial 200ml loss after 30 seconds
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 90000); // 90 seconds interval
     }, 30000); // 30 seconds delay
