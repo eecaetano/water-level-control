@@ -1,4 +1,3 @@
-// Função para imprimir os resultados na tela
 function imprimirResultados() {
     const capacidadeReservatorio = 2000; // Capacidade do reservatório em litros
     const resultados = [
@@ -24,6 +23,4 @@ function imprimirResultados() {
     console.log("Obrigado por utilizar o AquaControl".padStart(70));
     console.log(`${cidade}, ${dataAtual}`.padStart(70));
 }
-
-// Chamar a função para executar
 imprimirResultados();
