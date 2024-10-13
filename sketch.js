@@ -19,6 +19,7 @@ function setup() {
 
     document.getElementById('pause-button').addEventListener('click', togglePause);
     document.getElementById('reset-button').addEventListener('click', resetSystem);
+    document.getElementById('print-button').addEventListener('click', imprimirResultados);
 }
 
 function updateWaterLevel() {
@@ -98,6 +99,7 @@ function resetSystem() {
     }, 30000); // 30 seconds delay
 }
 
+// Função para imprimir os resultados na tela
 function imprimirResultados() {
     const capacidadeReservatorio = 2000; // Capacidade do reservatório em litros
     const resultados = [
@@ -123,3 +125,6 @@ function imprimirResultados() {
     console.log("Obrigado por utilizar o AquaControl".padStart(70));
     console.log(`${cidade}, ${dataAtual}`.padStart(70));
 }
+
+// Inicializar o sistema
+setup();
