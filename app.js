@@ -112,6 +112,7 @@ function imprimirResultados() {
     console.log("\n\n");
     console.log("Caetano_AquaControl®".padStart(40));
     console.log(" Projeto experimental de Sistema de monitoramento de Nível D'água".padStart(50));
+    console.log(`${cidade}, ${dataAtual}`.padStart(70));
     console.log("\nCONFIRA OS RESULTADOS\n".padStart(40));
     console.log(`Capacidade do RESEVATÓRIO: ${capacidadeReservatorio} L\n`);
     console.log("Data/Hora\t\t\tAlerta\t\t\tVolume de Água (L)");
@@ -121,7 +122,7 @@ function imprimirResultados() {
     });
     console.log("\n\n");
     console.log("Obrigado por utilizar o AquaControl".padStart(70));
-    console.log(`${cidade}, ${dataAtual}`.padStart(70));
+    
 }
 
 // Inicializar o sistema
