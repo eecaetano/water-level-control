@@ -38,7 +38,7 @@ function updateWaterLevel() {
             alerta = "Nível de água crítico";
             clearInterval(intervalId);
         } else if (waterLevel <= maxWaterLevel / 2) {
-            alerta = "Nível de água em 50%";
+            alerta = "Nível de água = ou < 50%";
         }
 
         updateWaterDisplay();
@@ -101,9 +101,9 @@ function resetSystem() {
 function imprimirResultados() {
     const capacidadeReservatorio = 2000; // Capacidade do reservatório em litros
     const resultados = [
-        { dataHora: "2024-10-12 10:00", alerta: "Nível de água baixo", volume: 1500 },
+        { dataHora: "2024-10-12 10:00", alerta: "Nível de água crítico", volume: 1500 },
         { dataHora: "2024-10-12 11:00", alerta: "Nível de água crítico", volume: 1400 },
-        { dataHora: "2024-10-12 12:00", alerta: "Nível de água crítico", volume: 1300 },
+        { dataHora: "2024-10-12 12:00", alerta: "Queda do nível de água", volume: 1300 },
     ];
     const numeroAlertas = resultados.length;
     const cidade = "São Paulo";
@@ -111,7 +111,7 @@ function imprimirResultados() {
 
     console.log("\n\n");
     console.log("Caetano_AquaControl®".padStart(40));
-    console.log("Sistema de monitoramento de vasão experimental".padStart(50));
+    console.log(" Projeto experimental de Sistema de monitoramento de Nível D'água".padStart(50));
     console.log("\nCONFIRA OS RESULTADOS\n".padStart(40));
     console.log(`Capacidade do RESEVATÓRIO: ${capacidadeReservatorio} L\n`);
     console.log("Data/Hora\t\t\tAlerta\t\t\tVolume de Água (L)");
