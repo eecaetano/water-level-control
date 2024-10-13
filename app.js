@@ -1,4 +1,4 @@
-let waterLevel = 200; // Initial water level in pixels
+let waterLevel = 2000; // Initial water level in pixels
 const maxWaterLevel = 200; // Maximum water level in pixels
 const minWaterLevel = 5; // Minimum water level in pixels
 const waterLossSequence = [10, 5, 15, 30, 35, 25, 25, 10, 15, 5]; // Water loss sequence in pixels
