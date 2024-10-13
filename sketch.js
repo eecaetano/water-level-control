@@ -98,7 +98,6 @@ function resetSystem() {
     }, 30000); // 30 seconds delay
 }
 
-// Função para imprimir os resultados na tela
 function imprimirResultados() {
     const capacidadeReservatorio = 2000; // Capacidade do reservatório em litros
     const resultados = [
