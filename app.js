@@ -24,6 +24,8 @@ function setup() {
 
 function updateWaterLevel() {
     if (!isPaused) {
+        let alerta = "";
+
         if (sequenceIndex < waterLossSequence.length) {
             waterLevel -= waterLossSequence[sequenceIndex];
             sequenceIndex++;
@@ -33,22 +35,16 @@ function updateWaterLevel() {
 
         if (waterLevel <= minWaterLevel) {
             waterLevel = minWaterLevel;
-            document.getElementById('alert').style.display = 'block';
+            alerta = "Nível de água crítico";
             clearInterval(intervalId);
-        } else {
-            document.getElementById('alert').style.display = 'none';
+        } else if (waterLevel <= maxWaterLevel / 2) {
+            alerta = "Nível de água em 50%";
         }
 
         updateWaterDisplay();
 
         const currentVolume = (waterLevel / maxWaterLevel) * maxWaterVolume;
-        if (currentVolume <= maxWaterVolume / 2) {
-            document.getElementById('attention-alert').style.display = 'block';
-        } else {
-            document.getElementById('attention-alert').style.display = 'none';
-        }
-
-        logWaterLevel(currentVolume);
+        logWaterLevel(currentVolume, alerta);
     }
 }
 
@@ -68,13 +64,15 @@ function updateClock() {
     }
 }
 
-function logWaterLevel(currentVolume) {
+function logWaterLevel(currentVolume, alerta) {
     const tableBody = document.getElementById('log-table').getElementsByTagName('tbody')[0];
     const newRow = tableBody.insertRow();
     const timeCell = newRow.insertCell(0);
     const levelCell = newRow.insertCell(1);
+    const alertCell = newRow.insertCell(2);
     timeCell.innerText = document.getElementById('clock').innerText;
     levelCell.innerText = `${currentVolume.toFixed(2)}L`;
+    alertCell.innerText = alerta || "Nenhum alerta";
 }
 
 function togglePause() {
