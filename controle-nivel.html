@@ -1,75 +1,34 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Nível de Caixa D'Água</title>
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-    <div class="container">
-        <h1><strong>Caetano Aquacontrol</strong></h1><p><h2>Para reservatório experimental de 2000 L</h2></p>
-        <div id="water-level">
-            <div id="water"></div>
-        </div>
-        <div id="level-indicator">Nível: 2000L</div>
-        <div id="clock">Hora: 00:00</div>
-<br>
-        <div id="alert" class="alert">Nível de água baixo!</div>
-        <div id="attention-alert" class="attention-alert">Atenção! Nível de água em 50%!</div>
-        <table id="log-table">
-            <thead>
-                <tr>
-                    <th>Hora</th>
-                    <th>Nível de Água (L)</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <button id="pause-button">Interromper</button>
-        <button id="reset-button">Reiniciar</button>
-    </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.min.js"></script>
-    <script src="js/sketch.js"></script>
-</body>
-</html>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Controle de Nível de Caixa D'Água</title>
+    <title>Painel de Controle</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+<meta id="dcngeagmmhegagicpcmpinaoklddcgon"><meta id="nedeegdmhlnmboboahchfpkmdnnemapd"><meta id="dcngeagmmhegagicpcmpinaoklddcgon"></head>
 <body>
-     <div class="container">
-        <h1><strong>Caetano Aquacontrol</strong></h1>
-        <p><h2>Para reservatório experimental de 2000 L</h2></p>
-        <div id="water-level">
-            <div id="water"></div>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="https://www.sabesp.com.br/site/uploads/file/sociedade_meioamb/folheto_agua_bonus_nov2014.pdf">Sustentabilidade</a></li>
+                <li><a href="https://www.sabesp.com.br/o-que-fazemos/obras-programas/uso-racional-agua">Conscientização</a></li>
+                <li><a href="https://www.sabesp.com.br/servicos/para-voce#entenda-sua-conta">Conta d'água</a></li>
+                <li><a href="https://www.sabesp.com.br/assets/images/folhetos/sabesp-dicas-economia-agua.pdf">Economize!</a></li>
+                <li><a href="https://www.sabesp.com.br/assets/images/folhetos/sabesp-instalacao-caixa-agua.pdf">Aprenda</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo do Sistema de Controle de Nível de Caixa D'Água" class="responsive-img">
+            <button onclick="location.href='controle-nivel.html'">Monitoramento do Nível D'Água</button>
         </div>
-        <div id="level-indicator">Nível: 2000L</div>
-        <div id="clock">Hora: 00:00</div>
-        <br>
-        <div id="alert" class="alert">Nível de água baixo!</div>
-        <div id="attention-alert" class="attention-alert">Atenção! Nível de água em 50%!</div>
-        <table id="log-table">
-            <thead>
-                <tr>
-                    <th>Hora</th>
-                    <th>Nível de Água (L)</th>
-                </tr>
-            </thead>
-            <tbody>
-            </tbody>
-        </table>
-        <button id="pause-button">Interromper</button>
-        <button id="reset-button">Reiniciar</button>
-        <button id="print-button" onclick="imprimirResultados()">Imprimir Resultados</button>
-    </div>
-    <script src="p5.min.js"></script>
-    <script src="sketch.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+    </main>
+    <br>
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 Caetano AquaControl.</p>
+            <p>Desenvolvido por 2ºBTEC</p>
+        </div>
+    </footer>
+
+
+</body></html>
