@@ -1,6 +1,6 @@
 let waterLevel = 200; // Nível inicial da água em pixels
 const maxWaterLevel = 200; // Nível máximo da água em pixels
-const minWaterLevel = 15; // Nível mínimo da água em pixels
+const minWaterLevel = 5; // Nível mínimo da água em pixels
 const waterLossSequence = [10, 25, 10, 25, 30, 20, 25, 10, 25, 15, 5]; // Sequência de perda de água em pixels
 const maxWaterVolume = 2000; // Volume máximo de água em litros
 let elapsedTime = 0;
@@ -11,7 +11,7 @@ let isPaused = false;
 function setup() {
     noCanvas();
     setTimeout(() => {
-        waterLevel -= 20; // Perda inicial de 200ml após 30 segundos
+        waterLevel -= 1; // Perda inicial de 1ml após 30 segundos
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 90000); // Intervalo de 90 segundos
     }, 30000); // Atraso de 30 segundos
@@ -47,6 +47,10 @@ if (currentVolume <= maxWaterVolume / 2) {
 
 if (currentVolume <= maxWaterVolume / 3) {
     registrarAlerta('Atenção! Nível inferior a 50%!');
+}
+
+if (currentVolume <= maxWaterVolume / 4) {
+    registrarAlerta('Atenção! Nível inferior a 25%!');
 }
 
 
@@ -104,7 +108,7 @@ function resetSystem() {
     document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
     setTimeout(() => {
-        waterLevel -= 20; // Perda inicial de 200ml após 30 segundos
+        waterLevel -= 1; // Perda inicial de 1ml após 30 segundos
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 90000); // Intervalo de 90 segundos
     }, 30000); // Atraso de 30 segundos
