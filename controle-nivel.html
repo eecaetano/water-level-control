@@ -18,17 +18,17 @@
               text-align: left;
 }
        .level-indicator {
-                      margin: 10px 0;
-                      padding: 10px;
-       }
+                       margin: 5px 0;
+              text-align: left;
+}
       .clock {
-           margin: 10px 0;
-           padding: 10px;
-      }
+             margin: 5px 0;
+              text-align: left;
+}
       .log-table {
-                margin: 10px 0;
-                padding: 10px;
-      }
+                margin: 5px 0;
+              text-align: left;
+}
     </style>
 </head>
 <body>
@@ -43,7 +43,9 @@
         </div>
     </div>
     <script>document.getElementById('dataAtual').textContent = new Date().toLocaleString();</script>
-            <div id="water-level"> </div>
+            <div id="water-level"> 
+            </div>
+                
             <div id="water" style="height: 200px;"></div>
             <div id="level-indicator">Nível: 2000.00L</div>
             <div id="clock">Hora: 00:00:00</div>
@@ -52,8 +54,8 @@
             <thead>
                 <tr>
                     <th>Hora</th>
-                    <th>Nível de Água (L)</th>
-                    <th>Alerta</th>
+                    <th>Nível de Água (L / Ml)</th>
+                    <th>Alertas</th>
                 </tr>
             </thead>
             <tbody></tbody>
