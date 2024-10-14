@@ -38,9 +38,17 @@ function updateWaterLevel() {
             waterLevel = minWaterLevel;
             alerta = "Nível de água crítico";
             clearInterval(intervalId);
-        } else if (waterLevel <= maxWaterLevel / 2) {
-            alerta = "Nível de água = ou < 50%";
+        } 
+        else if (waterLevel <= maxWaterLevel / 2) {
+            alerta = "Nível de água em 50%";
         }
+        else if (currentVolume <= maxWaterVolume / 3) {
+            alerta = "Nível inferior a 25%";
+        }
+        else if (currentVolume <= maxWaterVolume / 4) {
+            alerta = "Nível de água crítico";
+        }
+
 
         updateWaterDisplay();
 
@@ -116,7 +124,7 @@ function imprimirResultados() {
     console.log(`${cidade}, ${dataAtual}`.padStart(70));
     console.log("\nCONFIRA OS RESULTADOS\n".padStart(40));
     console.log(`Capacidade do RESEVATÓRIO: ${capacidadeReservatorio} L\n`);
-    console.log("Data/Hora\t\t\tAlerta\t\t\tVolume de Água (L)");
+    console.log("Data/Hora\t\t\tAlerta\t\t\tVolume de Água (L - ml)");
     console.log("-".repeat(70));
     resultados.forEach(resultado => {
         console.log(`${resultado.dataHora}\t${resultado.alerta}\t${resultado.volume}L`);
