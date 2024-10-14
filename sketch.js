@@ -1,7 +1,7 @@
 let waterLevel = 200; // Nível inicial da água em pixels
 const maxWaterLevel = 200; // Nível máximo da água em pixels
-const minWaterLevel = 5; // Nível mínimo da água em pixels
-const waterLossSequence = [10, 5, 15, 30, 35, 25, 25, 10, 15, 5]; // Sequência de perda de água em pixels
+const minWaterLevel = 15; // Nível mínimo da água em pixels
+const waterLossSequence = [10, 25, 10, 25, 30, 20, 25, 10, 25, 15, 5]; // Sequência de perda de água em pixels
 const maxWaterVolume = 2000; // Volume máximo de água em litros
 let elapsedTime = 0;
 let intervalId;
@@ -41,7 +41,7 @@ function updateWaterLevel() {
 
         const currentVolume = (waterLevel / maxWaterLevel) * maxWaterVolume;
         if (currentVolume <= maxWaterVolume / 2) {
-            registrarAlerta('Atenção! Nível de água em 50%!');
+            registrarAlerta('Atenção! Nível menor que 50%!');
         }
 
         logWaterLevel(currentVolume);
