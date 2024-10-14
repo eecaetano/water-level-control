@@ -5,13 +5,46 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LOCALIZE UM RESERVATÓRIO PARA MONITORAR</title>
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-    <link rel="stylesheet" href="styles.css">
-   </head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #map-container {
+            width: 80%;
+            height: 80%;
+            border: 2px solid #000;
+            position: relative;
+        }
+        #map {
+            width: 100%;
+            height: 100%;
+        }
+        .status {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .leaflet-popup-content-wrapper {
+            background-color: #39ff14; /* Neon green background */
+        }
+        .leaflet-popup-content a {
+            color: #000; /* Black text */
+            font-weight: bold;
+            text-decoration: none;
+        }
+    </style>
+</head>
 <body>
     <div class="status">Localização do Reservatório / Status</div>
     <div id="map-container">
         <div id="map"></div>
     </div>
+
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script>
         function initMap() {
@@ -21,7 +54,7 @@
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
             L.marker(location).addTo(map)
-                .bindPopup('<div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 75px;"><a href="controle-nivel.html">Reservatório</a></div></div>')
+                .bindPopup('<div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 75px;"><a href="pagina_de_monitoramento.html">Reservatório</a></div></div>')
                 .openPopup();
         }
 
