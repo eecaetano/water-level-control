@@ -41,7 +41,9 @@ function updateWaterLevel() {
 
         const currentVolume = (waterLevel / maxWaterLevel) * maxWaterVolume;
         if (currentVolume <= maxWaterVolume / 2) {
-            registrarAlerta('Atenção! Nível menor que 50%!');
+            registrarAlerta('Atenção! Nível próximo a 50%!');
+        if (currentVolume <= maxWaterVolume / 3) {
+            registrarAlerta('Atenção! Nível inferior a 50%!');
         }
 
         logWaterLevel(currentVolume);
