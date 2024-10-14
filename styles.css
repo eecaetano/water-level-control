@@ -1,4 +1,3 @@
-/* Estilos gerais */
 body {
     font-family: Arial, sans-serif;
     background-color: #f0f0f0;
@@ -12,7 +11,6 @@ header {
     text-align: center;
 }
 
-/* Estilos específicos para index.html */
 header nav ul {
     list-style: none;
     padding: 0;
@@ -31,6 +29,33 @@ header nav ul li a {
     font-weight: bold;
 }
 
+.logo-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.responsive-img {
+    width: 100%;
+    height: auto;
+}
+
+.logo-container img {
+    width: 420px;
+    height: auto;
+}
+
+.logo-container button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
 footer {
     background-color: #0073e6;
     color: white;
@@ -46,35 +71,7 @@ footer {
     margin: 0 auto;
 }
 
-.controle-nivel-page .logo-container {
-    text-align: center;
-    margin-top: 50px;
-}
-
-.controle-nivel-page .responsive-img {
-    width: 100%;
-    height: auto;
-}
-
-.controle-nivel-page .logo-container img {
-    width: 420px;
-    height: auto;
-}
-
-.controle-nivel-page .logo-container button {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-
-/* Estilos específicos para controle-nivel.html */
-.controle-nivel-page .container {
+.container {
     text-align: center;
     background: #fff;
     padding: 20px;
@@ -82,7 +79,7 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.controle-nivel-page #water-level {
+#water-level {
     width: 100px;
     height: 200px;
     border: 2px solid #000;
@@ -90,18 +87,18 @@ footer {
     position: relative;
 }
 
-.controle-nivel-page #water {
+#water {
     width: 100%;
     background: #00f;
     position: absolute;
     bottom: 0;
 }
 
-.controle-nivel-page #level-indicator, .controle-nivel-page #clock {
+#level-indicator, #clock {
     margin-top: 10px;
 }
 
-.controle-nivel-page .alert, .controle-nivel-page .attention-alert {
+.alert, .attention-alert {
     font-weight: bold;
     display: none;
     position: fixed;
@@ -110,12 +107,12 @@ footer {
     z-index: 1000;
 }
 
-.controle-nivel-page .alert {
+.alert {
     color: red;
     top: 10%;
 }
 
-.controle-nivel-page .attention-alert {
+.attention-alert {
     background: yellow;
     color: black;
     padding: 10px;
@@ -123,51 +120,15 @@ footer {
     top: 20%;
 }
 
-.controle-nivel-page #log-table th, .controle-nivel-page #log-table td {
+#log-table th, #log-table td {
     border: 1px solid #000;
     padding: 8px;
     text-align: center;
 }
 
-.controle-nivel-page button {
+button {
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
-}
-
-/* Estilos específicos para mapareservatorio.html */
-.mapa-reservatorio-page {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-
-.mapa-reservatorio-page #map-container {
-    width: 80%;
-    height: 80%;
-    border: 2px solid #000;
-    position: relative;
-}
-
-.mapa-reservatorio-page #map {
-    width: 100%;
-    height: 100%;
-}
-
-.mapa-reservatorio-page .status {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.mapa-reservatorio-page .leaflet-popup-content-wrapper {
-    background-color: #FFFF33; /* Neon yellow background */
-}
-
-.mapa-reservatorio-page .leaflet-popup-content a {
-    color: #000; /* Black text */
-    font-weight: bold;
-    text-decoration: none;
 }
