@@ -12,6 +12,7 @@ header {
     text-align: center;
 }
 
+/* Estilos específicos para index.html */
 header nav ul {
     list-style: none;
     padding: 0;
@@ -29,34 +30,7 @@ header nav ul li a {
     text-decoration: none;
     font-weight: bold;
 }
-/* Estilos específicos para index.html */
-.logo-container {
-    text-align: center;
-    margin-top: 50px;
-}
 
-.responsive-img {
-    width: 100%;
-    height: auto;
-}
-
-.logo-container img {
-    width: 420px;
-    height: auto;
-}
-
-.logo-container button {
-    display: block;
-    margin: 0 auto;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    background-color: #0073e6;
-    color: white;
-    border: none;
-    border-radius: 5px;
-}
-/* Estilos gerais */
 footer {
     background-color: #0073e6;
     color: white;
@@ -72,7 +46,35 @@ footer {
     margin: 0 auto;
 }
 
-.container {
+/* Estilos específicos para controle-nivel.html */
+.controle-nivel-page .logo-container {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.controle-nivel-page .responsive-img {
+    width: 100%;
+    height: auto;
+}
+
+.controle-nivel-page .logo-container img {
+    width: 420px;
+    height: auto;
+}
+
+.controle-nivel-page .logo-container button {
+    display: block;
+    margin: 0 auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #0073e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+}
+
+.controle-nivel-page .container {
     text-align: center;
     background: #fff;
     padding: 20px;
@@ -80,7 +82,7 @@ footer {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-#water-level {
+.controle-nivel-page #water-level {
     width: 100px;
     height: 200px;
     border: 2px solid #000;
@@ -88,18 +90,18 @@ footer {
     position: relative;
 }
 
-#water {
+.controle-nivel-page #water {
     width: 100%;
     background: #00f;
     position: absolute;
     bottom: 0;
 }
 
-#level-indicator, #clock {
+.controle-nivel-page #level-indicator, .controle-nivel-page #clock {
     margin-top: 10px;
 }
 
-.alert, .attention-alert {
+.controle-nivel-page .alert, .controle-nivel-page .attention-alert {
     font-weight: bold;
     display: none;
     position: fixed;
@@ -108,12 +110,12 @@ footer {
     z-index: 1000;
 }
 
-.alert {
+.controle-nivel-page .alert {
     color: red;
     top: 10%;
 }
 
-.attention-alert {
+.controle-nivel-page .attention-alert {
     background: yellow;
     color: black;
     padding: 10px;
@@ -121,13 +123,13 @@ footer {
     top: 20%;
 }
 
-#log-table th, #log-table td {
+.controle-nivel-page #log-table th, .controle-nivel-page #log-table td {
     border: 1px solid #000;
     padding: 8px;
     text-align: center;
 }
 
-button {
+.controle-nivel-page button {
     margin-top: 10px;
     padding: 10px 20px;
     font-size: 16px;
