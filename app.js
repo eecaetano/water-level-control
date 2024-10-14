@@ -12,7 +12,7 @@ function setup() {
     console.log("Setup iniciado");
     noCanvas();
     setTimeout(() => {
-        waterLevel -= 200; // Initial 200ml loss after 30 seconds
+        waterLevel -= 1; // Initial 1ml loss after 10 seconds
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 90000); // 90 seconds interval
     }, 30000); // 30 seconds delay
@@ -93,7 +93,7 @@ function resetSystem() {
     document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
     setTimeout(() => {
-        waterLevel -= 20; // Initial 200ml loss after 30 seconds
+        waterLevel -= 1; // Initial 1ml loss after 30 seconds
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 90000); // 90 seconds interval
     }, 30000); // 30 seconds delay
