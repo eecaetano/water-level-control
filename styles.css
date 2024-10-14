@@ -46,7 +46,6 @@ footer {
     margin: 0 auto;
 }
 
-/* Estilos específicos para controle-nivel.html */
 .controle-nivel-page .logo-container {
     text-align: center;
     margin-top: 50px;
@@ -74,6 +73,7 @@ footer {
     border-radius: 5px;
 }
 
+/* Estilos específicos para controle-nivel.html */
 .controle-nivel-page .container {
     text-align: center;
     background: #fff;
