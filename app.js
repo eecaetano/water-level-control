@@ -9,6 +9,7 @@ let sequenceIndex = 0;
 let isPaused = false;
 
 function setup() {
+    console.log("Setup iniciado");
     noCanvas();
     setTimeout(() => {
         waterLevel -= 200; // Initial 200ml loss after 30 seconds
@@ -65,6 +66,7 @@ function updateClock() {
 }
 
 function logWaterLevel(currentVolume, alerta) {
+    console.log("Registrando nível de água:", currentVolume, alerta);
     const tableBody = document.getElementById('log-table').getElementsByTagName('tbody')[0];
     const newRow = tableBody.insertRow();
     const timeCell = newRow.insertCell(0);
@@ -96,7 +98,6 @@ function resetSystem() {
         intervalId = setInterval(updateWaterLevel, 90000); // 90 seconds interval
     }, 30000); // 30 seconds delay
 }
-
 // Função para imprimir os resultados na tela
 function imprimirResultados() {
     const capacidadeReservatorio = 2000; // Capacidade do reservatório em litros
@@ -122,7 +123,6 @@ function imprimirResultados() {
     });
     console.log("\n\n");
     console.log("Obrigado por utilizar o AquaControl".padStart(70));
-    
 }
 
 // Inicializar o sistema
