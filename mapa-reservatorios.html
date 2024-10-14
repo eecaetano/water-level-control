@@ -30,7 +30,7 @@
             margin-bottom: 10px;
         }
         .leaflet-popup-content-wrapper {
-            background-color: #39ff14; /* Neon green background */
+            background-color: #FFFF33; /* Neon yellow background */
         }
         .leaflet-popup-content a {
             color: #000; /* Black text */
@@ -54,7 +54,7 @@
                 attribution: '© OpenStreetMap contributors'
             }).addTo(map);
             L.marker(location).addTo(map)
-                .bindPopup('<div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 75px;"><a href="pagina_de_monitoramento.html">Reservatório</a></div></div>')
+                .bindPopup('<div class="leaflet-popup-content-wrapper"><div class="leaflet-popup-content" style="width: 75px;"><a href="controle-nivel.html">Reservatório</a></div></div>')
                 .openPopup();
         }
 
