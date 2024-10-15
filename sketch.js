@@ -65,7 +65,7 @@ function updateClock() {
 
 function logWaterLevel(currentVolume, alerta) {
     console.log("Registrando nível de água:", currentVolume, alerta);
-    const tableBody = document.getElementById('log-table').getElementsByTagName('tbody');
+    const tableBody = document.getElementById('log-table').getElementsByTagName('tbody')[0];
     const newRow = tableBody.insertRow();
     const timeCell = newRow.insertCell(0);
     const levelCell = newRow.insertCell(1);
@@ -85,7 +85,7 @@ function resetSystem() {
     waterLevel = 20000;
     isPaused = false;
     document.getElementById('pause-button').innerText = 'Interromper';
-    document.getElementById('log-table').getElementsByTagName('tbody').innerHTML = '';
+    document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
     setTimeout(() => {
         waterLevel -= 1; // Perda inicial de 1ml após 15 segundos
@@ -99,25 +99,9 @@ function imprimirResultados() {
     const resultados = [
         { dataHora: "2024-10-12 10:00", alerta: "Nível de água crítico", volume: 15000 },
         { dataHora: "2024-10-12 11:00", alerta: "Nível de água crítico", volume: 14000 },
-        { dataHora: "2024-10-12 12:00", alerta: "Queda do nível de água", volume: 13000 },
+        { dataHora: "2024-10-12 12:00", alerta: "Nível de água crítico", volume: 13000 }
     ];
-    const numeroAlertas = resultados.length;
-    const cidade = "São Paulo";
-    const dataAtual = new Date().toLocaleDateString('pt-BR', { day: '2-digit', month: 'long', year: 'numeric' });
-
-    console.log("\n\n");
-    console.log("Caetano_AquaControl®".padStart(40));
-    console.log(" Projeto experimental de Sistema de monitoramento de Nível D'água".padStart(50));
-    console.log(`${cidade}, ${dataAtual}`.padStart(70));
-    console.log("\nCONFIRA OS RESULTADOS\n".padStart(40));
-    console.log(`Capacidade do RESERVATÓRIO: ${capacidadeReservatorio} ml\n`);
-    console.log("Data/Hora\t\t\tAlerta\t\t\tVolume de Água (ml)");
-    console.log("-".repeat(70));
-    resultados.forEach(resultado => {
-        console.log(`${resultado.dataHora}\t${resultado.alerta}\t${resultado.volume}ml`);
-    });
-    console.log("\n\n");
-    console.log("Obrigado por utilizar o AquaControl".padStart(70));
+    console.log(resultados);
 }
 
 // Inicializar o sistema
