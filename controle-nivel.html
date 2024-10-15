@@ -27,9 +27,6 @@
             <p><strong>DATA ATUAL:</strong> <span id="dataAtual"></span></p>
         </div>
     </div>
-    <script>
-        document.getElementById('dataAtual').textContent = new Date().toLocaleString();
-    </script>
     <div id="water-level">
         <div id="water" style="height: 200px;"></div>
     </div>
@@ -52,5 +49,8 @@
     <script src="p5.min.js"></script>
     <script src="sketch.js"></script>
     <script src="app.js"></script>
+    <script>
+        document.getElementById('dataAtual').textContent = new Date().toLocaleString();
+    </script>
 </body>
 </html>
