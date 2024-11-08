@@ -106,3 +106,7 @@ function imprimirResultados() {
         console.log(`Data/Hora: ${resultado.dataHora}, Alerta: ${resultado.alerta}, Volume: ${resultado.volume}ml`);
     });
 }
+
+document.addEventListener('DOMContentLoaded', (event) => {
+    setup();
+});
