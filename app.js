@@ -101,8 +101,8 @@ function imprimirResultados() {
         { dataHora: "2024-10-12 11:00", alerta: "Nível de água crítico", volume: 14000 },
         { dataHora: "2024-10-12 12:00", alerta: "Nível de água crítico", volume: 13000 }
     ];
-    console.log(resultados);
-}
 
-// Inicializar o sistema
-setup();
+    resultados.forEach(resultado => {
+        console.log(`Data/Hora: ${resultado.dataHora}, Alerta: ${resultado.alerta}, Volume: ${resultado.volume}ml`);
+    });
+}
