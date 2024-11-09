@@ -105,11 +105,11 @@ nav ul li a:hover {
 }
 
 .responsive-img {
-    max-width: 50%; /* Reduz o tamanho da imagem para 50% */
+    max-width: 75%; /* Reduz o tamanho da imagem para 75% */
     height: auto;
 }
 
 .logo-container button {
     display: block;
-    margin: 20px auto 0; /* 20px de margem superior para 2 cm de espaço */
+    margin: 60px auto 0; /* 60px de margem superior para 2 cm de espaço */
 }
