@@ -105,7 +105,7 @@ nav ul li a:hover {
 }
 
 .responsive-img {
-    max-width: 100%;
+    max-width: 50%; /* Reduz o tamanho da imagem para 50% */
     height: auto;
 }
 
