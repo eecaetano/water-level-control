@@ -23,20 +23,20 @@ function updateWaterLevel() {
     if (!isPaused) {
         let alerta = "";
 
-        if (waterLevel > 10000) {
-            waterLevel -= 200; // Perda de 200ml
-        } else if (waterLevel > 5000) {
-            waterLevel -= 200; // Perda de 200ml
-            alerta = "50% abaixo do volume inicial";
-        } else if (waterLevel > 2500) {
+        if (waterLevel > 15000) {
             waterLevel -= 2500; // Perda de 2500ml
+        } else if (waterLevel > 10000) {
+            waterLevel -= 10000; // Perda de 2500ml
+            alerta = "50% abaixo do volume inicial";
+        } else if (waterLevel > 5000) {
+            waterLevel -= 2500; // Perda de 25000ml
             alerta = "ALERTA! Nível d'água é -25%";
         } else if (waterLevel > 1000) {
-            waterLevel -= 1500; // Perda de 1500ml
+            waterLevel -= 1500; // Perda de 15000ml
         } else if (waterLevel > 500) {
-            waterLevel -= 500; // Perda de 500ml
+            waterLevel -= 500; // Perda de 5000ml
         } else if (waterLevel > 49) {
-            waterLevel -= 50; // Perda de 50ml
+            waterLevel -= 50; // Perda de 500ml
         } else {
             waterLevel = minWaterLevel;
             alerta = "Nível de água baixo!";
