@@ -7,6 +7,7 @@ window.top === window && !function(){
     e.async = !0;
     t.appendChild(e);
 }();
+
 function setup() {
     console.log("Setup iniciado");
     noCanvas();
