@@ -26,17 +26,17 @@ function updateWaterLevel() {
         if (waterLevel > 15000) {
             waterLevel -= 2500; // Perda de 2500ml
         } else if (waterLevel > 10000) {
-            waterLevel -= 10000; // Perda de 2500ml
+            waterLevel -= 2500; // Perda de 2500ml
             alerta = "50% abaixo do volume inicial";
         } else if (waterLevel > 5000) {
-            waterLevel -= 2500; // Perda de 25000ml
+            waterLevel -= 2500; // Perda de 2500ml
             alerta = "ALERTA! Nível d'água é -25%";
         } else if (waterLevel > 1000) {
-            waterLevel -= 1500; // Perda de 15000ml
+            waterLevel -= 1500; // Perda de 1500ml
         } else if (waterLevel > 500) {
-            waterLevel -= 500; // Perda de 5000ml
+            waterLevel -= 500; // Perda de 500ml
         } else if (waterLevel > 49) {
-            waterLevel -= 50; // Perda de 500ml
+            waterLevel -= 50; // Perda de 50ml
         } else {
             waterLevel = minWaterLevel;
             alerta = "Nível de água baixo!";
@@ -88,25 +88,17 @@ function resetSystem() {
     document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
     setTimeout(() => {
-        waterLevel -= 1; // Perda inicial de 1000ml após 15 segundos
+        waterLevel -= 1; // Perda inicial de 1ml após 15 segundos
         updateWaterDisplay();
-        intervalId = setInterval(updateWaterLevel, 25000); // Intervalo de 25 segundos
-    }, 10000); // Atraso de 10 segundos
+        intervalId = setInterval(updateWaterLevel, 35000); // Intervalo de 35 segundos
+    }, 15000); // Atraso de 15 segundos
 }
 
 function imprimirResultados() {
     const capacidadeReservatorio = 20000; // Capacidade do reservatório em ml
     const resultados = [
         { dataHora: "2024-10-12 10:00", alerta: "Queda do nível de água", volume: 15000 },
-        { dataHora: "2024-10-12 11:00", alerta: "Reservatório com 50% da capacidade, volume: 10000 },
-        { dataHora: "2024-10-12 12:00", alerta: "Nível de água crítico", volume: 5000 }
+        { dataHora: "2024-10-12 11:00", alerta: "Reservatório com 5000ml" }
     ];
-
-    resultados.forEach(resultado => {
-        console.log(`Data/Hora: ${resultado.dataHora}, Alerta: ${resultado.alerta}, Volume: ${resultado.volume}ml`);
-    });
+    console.log("Resultados:", resultados);
 }
-
-document.addEventListener('DOMContentLoaded', (event) => {
-    setup();
-});
