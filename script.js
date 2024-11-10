@@ -11,7 +11,7 @@ function setup() {
     console.log("Setup iniciado");
     noCanvas();
     setTimeout(() => {
-        waterLevel -= 1; // Perda inicial de 500ml após 15 segundos
+        waterLevel -= 1; // Perda inicial de 1500ml após 15 segundos
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 35000); // Intervalo de 35 segundos
     }, 15000); // Atraso de 15 segundos
