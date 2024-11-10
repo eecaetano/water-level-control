@@ -1,6 +1,6 @@
 let waterLevel = 20000; // Nível inicial da água em ml
 const maxWaterLevel = 20000; // Nível máximo da água em ml
-const minWaterLevel = 51; // Nível mínimo da água em ml
+const minWaterLevel = 50; // Nível mínimo da água em ml
 let intervalId;
 let isPaused = false;
 
@@ -88,7 +88,7 @@ function resetSystem() {
     document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
     setTimeout(() => {
-        waterLevel -= 1; // Perda inicial de 1ml após 15 segundos
+        waterLevel -= 1; // Perda inicial de 500ml após 15 segundos
         updateWaterDisplay();
         intervalId = setInterval(updateWaterLevel, 35000); // Intervalo de 35 segundos
     }, 15000); // Atraso de 15 segundos
