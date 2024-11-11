@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Nível</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js" defer></script>
     <style>
         .info {
@@ -29,13 +30,14 @@
             font-size: 1em;
         }
         #water-level {
-            width: 100%;
+            width: 80%;
             height: 300px;
             background-color: #e0e0e0;
             position: relative;
             overflow: hidden;
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
         }
         #water {
             width: 100%;
@@ -43,6 +45,43 @@
             bottom: 0;
             background-color: lightblue;
             transition: height 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        #water::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to top,
+                lightblue,
+                lightblue 29px,
+                #e0e0e0 30px,
+                #e0e0e0 49px,
+                lightblue 50px
+            );
+            opacity: 0.5;
+        }
+        .graduation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .graduation div {
+            width: 100%;
+            height: 10%;
+            border-bottom: 1px solid #555;
+            display: flex;
+            justify-content: space-between;
+        }
+        .graduation div span {
+            font-size: 0.8em;
+            color: #555;
         }
         #level-indicator {
             font-size: 1.5em;
@@ -94,22 +133,22 @@
             <p><strong>DATA ATUAL:</strong> <span id="dataAtual" class="info-detail"></span></p>
         </div>
     </div>
- <div id="water-level">
-    <div id="water" style="height: 100%;"></div>
-    <div class="graduation">
-        <div><span>20L</span></div>
-        <div><span>18L</span></div>
-        <div><span>16L</span></div>
-        <div><span>14L</span></div>
-        <div><span>12L</span></div>
-        <div><span>10L</span></div>
-        <div><span>8L</span></div>
-        <div><span>6L</span></div>
-        <div><span>4L</span></div>
-        <div><span>2L</span></div>
-        <div><span>0L</span></div>
+    <div id="water-level">
+        <div id="water" style="height: 80%;"></div>
+        <div class="graduation">
+            <div><span>20L</span></div>
+            <div><span>18L</span></div>
+            <div><span>16L</span></div>
+            <div><span>14L</span></div>
+            <div><span>12L</span></div>
+            <div><span>10L</span></div>
+            <div><span>8L</span></div>
+            <div><span>6L</span></div>
+            <div><span>4L</span></div>
+            <div><span>2L</span></div>
+            <div><span>0L</span></div>
+        </div>
     </div>
-</div>
     <div id="level-indicator">Nível: 20000ml</div>
     <div id="clock">00:00:00</div>
     <br>
