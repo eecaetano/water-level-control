@@ -13,7 +13,7 @@ if (window.top === window) {
 
 let waterLevel = 20000; // Nível inicial da água em ml
 const maxWaterLevel = 20000; // Nível máximo da água em ml
-const minWaterLevel = 51; // Nível mínimo da água em ml
+const minWaterLevel = 0; // Nível mínimo da água em ml
 let isPaused = false;
 
 function setup() {
@@ -35,10 +35,13 @@ function setup() {
     momentos.forEach((momento, index) => {
         setTimeout(() => {
             waterLevel -= momento.perda;
+            if (waterLevel < minWaterLevel) {
+                waterLevel = minWaterLevel;
+            }
             updateWaterDisplay();
             logWaterLevel(waterLevel, momento.alerta);
         }, delay);
-        delay += 1000; // 1 segundo de intervalo entre cada momento
+        delay += 15000; // 15 segundos de intervalo entre cada momento
     });
 
     setInterval(updateClock, 1000);
