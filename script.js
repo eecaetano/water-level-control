@@ -107,28 +107,15 @@ function resetSystem() {
 }
 
 function imprimirResultados() {
-    const capacidadeReservatorio = 20000; // Capacidade do reservatório em ml
-    const resultados = [];
-
-    // Coleta os dados visíveis na tela
-    const clock = document.getElementById('clock').innerText;
-    const waterLevelDisplay = document.getElementById('level-indicator').innerText;
-    const logTable = document.getElementById('log-table').getElementsByTagName('tbody')[0];
-    const logRows = logTable.getElementsByTagName('tr');
-
-    for (let i = 0; i < logRows.length; i++) {
-        const cells = logRows[i].getElementsByTagName('td');
-        resultados.push({
-            dataHora: cells[0].innerText,
-            volume: cells[1].innerText,
-            alerta: cells[2].innerText
-        });
-    }
-
-    console.log("Hora atual:", clock);
-    console.log("Nível de água atual:", waterLevelDisplay);
-    console.log("Log de resultados:", resultados);
+    html2canvas(document.body, {
+        onrendered: function(canvas) {
+            var imgData = canvas.toDataURL('image/png');
+            var newWindow = window.open('');
+            newWindow.document.write('<img src="' + imgData + '"/>');
+        }
+    });
 }
+
 
 // Certifique-se de chamar a função setup() quando a página carregar
 window.onload = setup;
