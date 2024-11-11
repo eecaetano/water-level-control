@@ -25,6 +25,66 @@ h1 {
     max-width: 600px;
     animation: fadeInUp 1s ease-in-out;
 }
+#water-level {
+    width: 80%;
+    height: 300px;
+    background-color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Centraliza o elemento */
+}
+
+#water {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    background-color: lightblue;
+    transition: height 0.5s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+#water::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        to top,
+        lightblue,
+        lightblue 29px,
+        #e0e0e0 30px,
+        #e0e0e0 49px,
+        lightblue 50px
+    );
+    opacity: 0.5;
+}
+
+.graduation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.graduation div {
+    width: 100%;
+    height: 10%;
+    border-bottom: 1px solid #555;
+    display: flex;
+    justify-content: space-between;
+}
+
+.graduation div span {
+    font-size: 0.8em;
+    color: #555;
+}
+
 .info {
     margin: 20px auto;
     padding: 20px;
