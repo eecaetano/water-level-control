@@ -15,6 +15,7 @@ let waterLevel = 20000; // Nível inicial da água em ml
 const maxWaterLevel = 20000; // Nível máximo da água em ml
 const minWaterLevel = 0; // Nível mínimo da água em ml
 let isPaused = false;
+let intervalId;
 
 function setup() {
     console.log("Setup iniciado");
@@ -31,18 +32,21 @@ function setup() {
         { perda: 2000, alerta: "ALERTA VERMELHO: RESERVATÓRIO ESGOTADO" }
     ];
 
-    let delay = 0;
-    momentos.forEach((momento, index) => {
-        setTimeout(() => {
+    let index = 0;
+    intervalId = setInterval(() => {
+        if (index < momentos.length) {
+            const momento = momentos[index];
             waterLevel -= momento.perda;
             if (waterLevel < minWaterLevel) {
                 waterLevel = minWaterLevel;
             }
             updateWaterDisplay();
             logWaterLevel(waterLevel, momento.alerta);
-        }, delay);
-        delay += 15000; // 15 segundos de intervalo entre cada momento
-    });
+            index++;
+        } else {
+            clearInterval(intervalId);
+        }
+    }, 15000); // 15 segundos de intervalo entre cada momento
 
     setInterval(updateClock, 1000);
 
@@ -85,6 +89,11 @@ function logWaterLevel(currentVolume, alerta) {
 function togglePause() {
     isPaused = !isPaused;
     document.getElementById('pause-button').innerText = isPaused ? 'Continuar' : 'Interromper';
+    if (isPaused) {
+        clearInterval(intervalId);
+    } else {
+        setup(); // Reinicia o processo
+    }
 }
 
 function resetSystem() {
@@ -94,6 +103,7 @@ function resetSystem() {
     document.getElementById('pause-button').innerText = 'Interromper';
     document.getElementById('log-table').getElementsByTagName('tbody')[0].innerHTML = '';
     updateWaterDisplay();
+    setup(); // Reinicia o processo
 }
 
 function imprimirResultados() {
