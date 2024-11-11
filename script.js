@@ -81,7 +81,7 @@ function logWaterLevel(currentVolume, alerta) {
     const timeCell = newRow.insertCell(0);
     const levelCell = newRow.insertCell(1);
     const alertCell = newRow.insertCell(2);
-    timeCell.innerText = document.getElementById('clock').innerText;
+    timeCell.innerText = new Date().toLocaleTimeString(); // Atualiza a hora corretamente
     levelCell.innerText = `${currentVolume}ml`;
     alertCell.innerText = alerta || "Nenhum alerta";
 }
@@ -132,3 +132,4 @@ function imprimirResultados() {
 
 // Certifique-se de chamar a função setup() quando a página carregar
 window.onload = setup;
+
