@@ -107,16 +107,17 @@ function resetSystem() {
 }
 
 function imprimirResultados() {
-    html2canvas(document.body, {
-        onrendered: function(canvas) {
-            var imgData = canvas.toDataURL('image/png');
-            var newWindow = window.open('');
-            newWindow.document.write('<img src="' + imgData + '"/>');
-        }
+    html2canvas(document.body).then(canvas => {
+        var imgData = canvas.toDataURL('image/png');
+        var newWindow = window.open('');
+        newWindow.document.write('<img src="' + imgData + '"/>');
+        newWindow.document.close();
+        newWindow.focus();
+        newWindow.print();
+        newWindow.close();
+    }).catch(error => {
+        console.error('Erro ao capturar a tela:', error);
     });
 }
 
-
-// Certifique-se de chamar a função setup() quando a página carregar
-window.onload = setup;
 
