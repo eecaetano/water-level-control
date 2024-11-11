@@ -110,14 +110,16 @@ function imprimirResultados() {
     html2canvas(document.body).then(canvas => {
         var imgData = canvas.toDataURL('image/png');
         var newWindow = window.open('');
+        newWindow.document.write('<html><head><title>Print</title></head><body>');
         newWindow.document.write('<img src="' + imgData + '"/>');
+        newWindow.document.write('</body></html>');
         newWindow.document.close();
         newWindow.focus();
-        newWindow.print();
-        newWindow.close();
+        newWindow.onload = function() {
+            newWindow.print();
+            newWindow.close();
+        };
     }).catch(error => {
         console.error('Erro ao capturar a tela:', error);
     });
 }
-
-
