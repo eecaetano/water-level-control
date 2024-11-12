@@ -21,9 +21,10 @@
             margin: 0;
             padding: 0;
             display: flex;
+            justify-content: center; /* Centraliza os itens do menu */
         }
         nav ul li {
-            float: left;
+            float: none; /* Remove o float */
         }
         nav ul li a {
             display: block;
@@ -45,6 +46,26 @@
         }
         .footer-content {
             text-align: center;
+        }
+        .logo-container {
+            text-align: center;
+        }
+        .logo-container button {
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .logo-container button:hover {
+            background-color: #45a049;
+            transform: scale(1.05);
         }
     </style>
 </head>
