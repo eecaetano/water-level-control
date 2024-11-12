@@ -6,37 +6,167 @@
     <title>Controle de Nível</title>
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <script src="script.js" defer></script>
+    <style>
+        .info {
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #4CAF50;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+            max-width: 600px;
+        }
+        .info p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        .info-detail {
+            display: block;
+            margin-top: 5px;
+            color: #555;
+            font-size: 1em;
+        }
+        #water-level {
+            width: 80%;
+            height: 300px;
+            background-color: #e0e0e0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 0 auto;
+        }
+        #water {
+            width: 100%;
+            position: absolute;
+            bottom: 0;
+            background-color: lightblue;
+            transition: height 0.5s ease-in-out;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+        }
+        #water::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                to top,
+                lightblue,
+                lightblue 29px,
+                #e0e0e0 30px,
+                #e0e0e0 49px,
+                lightblue 50px
+            );
+            opacity: 0.5;
+        }
+        .graduation {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+        }
+        .graduation div {
+            width: 100%;
+            height: 10%;
+            border-bottom: 1px solid #555;
+            display: flex;
+            justify-content: space-between;
+        }
+        .graduation div span {
+            font-size: 0.8em;
+            color: #555;
+        }
+        #level-indicator {
+            font-size: 1.5em;
+            margin: 20px 0;
+        }
+        #clock {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        table {
+            width: 80%;
+            margin: 20px auto;
+            border-collapse: collapse;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid #ddd;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1em;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="https://www.sabesp.com.br/site/uploads/file/sociedade_meioamb/folheto_agua_bonus_nov2014.pdf">Sustentabilidade</a></li>
-                <li><a href="https://www.sabesp.com.br/o-que-fazemos/obras-programas/uso-racional-agua">Conscientização</a></li>
-                <li><a href="https://www.sabesp.com.br/assets/images/folhetos/sabesp-dicas-economia-agua.pdf">Economize!</a></li>
-            </ul>
-        </nav>
-    </header>
-    <br>
-    <br>
-    <main>
-        <div class="logo-container">
-            <br>
-            <img src="logo.png" alt="Logo do Sistema de Controle de Nível de Caixa D'Água" class="responsive-img">
-            <br>
-            <br>
-            <button onclick="location.href='mapa-reservatorio.html'">Localize o reservatório no mapa</button>
+    <div class="container">
+        <h1>Caetano_AquaControl®</h1>
+        <h2>Projeto experimental - 20000 L</h2>
+        <div class="info">
+            <p><strong>Geolocalização:</strong> <span class="info-detail">23° 33' 56.408" S, 46° 37' 48.529" W</span></p>
+            <p><strong>Endereço:</strong> <span class="info-detail">Rua Pires da Mota, 99. Aclimação. São Paulo-SP. CEP: 01529-001</span></p>
+            <p><strong>FONE:</strong> <span class="info-detail">11 3207-7235</span></p>
+            <p><strong>DATA ATUAL:</strong> <span id="dataAtual" class="info-detail"></span></p>
         </div>
-    </main>
-    <br>
-    <br>
-    <br>
-    <footer>
-        <div class="footer-content">
-            <p>© 2024 Caetano AquaControl.</p>
-            <p>Desenvolvido por 2ºBTEC</p>
+    </div>
+    <div id="water-level">
+        <div id="water" style="height: 100%;"></div>
+        <div class="graduation">
+            <div><span>20L</span></div>
+            <div><span>18L</span></div>
+            <div><span>16L</span></div>
+            <div><span>14L</span></div>
+            <div><span>12L</span></div>
+            <div><span>10L</span></div>
+            <div><span>8L</span></div>
+            <div><span>6L</span></div>
+            <div><span>4L</span></div>
+            <div><span>2L</span></div>
+            <div><span>0L</span></div>
         </div>
-    </footer>
+    </div>
+    <div id="level-indicator">Nível: 20000ml</div>
+    <div id="clock">00:00:00</div>
+    <br>
+    <table id="log-table">
+        <thead>
+            <tr>
+                <th>Hora</th>
+                <th>Nível de Água (L-Ml)</th>
+                <th>Alertas</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <button id="pause-button">Interromper</button>
+    <button id="reset-button">Resetar</button>
+    <button id="print-button">Imprimir</button>
+    <script>
+        document.getElementById('dataAtual').textContent = new Date().toLocaleString();
+    </script>
 </body>
 </html>
