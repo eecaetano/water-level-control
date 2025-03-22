@@ -37,6 +37,11 @@ h1 {
     margin: 0;
     animation: slideInDown 1s ease-in-out;
 }
+
+p {
+  font-size: 1px;
+}
+
 #data {
     margin: 20px auto;
     padding: 20px;
@@ -127,11 +132,11 @@ p {
 }
 .logo {
     text-align: center;
-    margin-top: 20px;
+    margin-top: auto;
     animation: bounceIn 1s ease-in-out;
 }
 .logo img {
-    width: 80px;
+    width: auto;
     height: auto;
     transition: transform 0.3s ease-in-out;
 }
