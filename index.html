@@ -7,6 +7,27 @@
     <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="script.js" defer></script>
+    <style>
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .button-container button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background: linear-gradient(to bottom, #a8e063, #56ab2f); /* Verde degradê */
+            border: none;
+            color: white;
+            border-radius: 5px;
+        }
+        .button-container button:hover {
+            background: linear-gradient(to bottom, #56ab2f, #a8e063); /* Inverte o degradê ao passar o mouse */
+        }
+    </style>
 </head>
 <body>
     <header>
@@ -18,31 +39,27 @@
             </ul>
         </nav>
     </header>
-    <br>
-    <br>
     <main>
+        <br>
         <div class="logo-container">
-            <br>
             <img src="logo.png" alt="Logo do Sistema de Controle de Nível de Caixa D'Água" class="responsive-img">
-            <br>
-            <br>
         </div>
-  <div class="button-container">
-    <button onclick="location.href='mapa-reservatorio.html'">
-      <h2>ACESSE O SIMULADOR</h2>
-      <strong>CLIQUE AQUI</strong>
-    </button>
-    <button onclick="location.href='https://www.canva.com/design/DAGTOZZzeHI/-RYIiteAFSnpWCnxGhQhQw/edit?utm_content=DAGTOZZzeHI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'">
-      <h2>Etapas do Projeto</h2>
-      <strong>CLIQUE AQUI</strong>
-    </button>
-    <button onclick="location.href='https://github.com/eecaetano/water-level-control'"><h2>Código do projeto</h2>
-      <strong>CLIQUE AQUI</strong>
-    </button>
-  </div>
-    </main>
-    <br>
-    <br>
+        <br>
+        <div class="button-container">
+            <button onclick="location.href='mapa-reservatorio.html'">
+                <h2>ACESSE O SIMULADOR</h2>
+                <strong>CLIQUE AQUI</strong>
+            </button>
+            <button onclick="location.href='https://www.canva.com/design/DAGTOZZzeHI/-RYIiteAFSnpWCnxGhQhQw/edit?utm_content=DAGTOZZzeHI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'">
+                <h2>Etapas do Projeto</h2>
+                <strong>CLIQUE AQUI</strong>
+            </button>
+            <button onclick="location.href='https://github.com/eecaetano/water-level-control'">
+                <h2>Código do projeto</h2>
+                <strong>CLIQUE AQUI</strong>
+            </button>
+        </div>
+    </main><br>
     <br>
     <footer>
         <div class="footer-content">
