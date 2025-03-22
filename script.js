@@ -21,14 +21,14 @@ function setup() {
     console.log("Setup iniciado");
     const momentos = [
         { perda: 0, alerta: "" },
-        { perda: 5000, alerta: "" },
-        { perda: 5000, alerta: "Atenção: queda de nível detectada! " },
-        { perda: 2500, alerta: "Atenção: queda de nível detectada!" },
+        { perda: 5000, alerta: "Atenção: queda de nível detectada!" },
+        { perda: 5000, alerta: "ATENÇÃO: queda de nível pesistente " },
+        { perda: 2500, alerta: "Atenção: verifique as saídas de água do reservatório!" },
         { perda: 2500, alerta: "Atenção: Verifique as saídas de água do reservatório!" },
         { perda: 2500, alerta: "ATENÇÃO: queda de nível pesistente" },
-        { perda: 1500, alerta: "" },
-        { perda: 1500, alerta: "" },
-        { perda: 1000, alerta: "ATENÇÃO: Risco de esgotamento" },
+        { perda: 1500, alerta: "ATENÇÃO: risco de esgotamento" },
+        { perda: 1500, alerta: "ATENÇÃO: vazão e nivel de água não detectados" },
+        { perda: 1000, alerta: "Reservatório Vazio" },
         { perda: 2000, alerta: "Reservatório Vazio" }
     ];
 
