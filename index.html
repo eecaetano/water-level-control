@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Nível</title>
-    <link rel="stylesheet" href="styles.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
     <script src="script.js" defer></script>
     <style>
@@ -12,21 +11,31 @@
             display: flex;
             flex-direction: column;
             align-items: center;
+            background: linear-gradient(to bottom, #e0f7fa, #0288d1); /* Degradê azul */
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
         .button-container button {
             display: block;
             margin: 10px 0;
             padding: 10px 20px;
             font-size: 16px;
+            width: 200px; /* Largura fixa */
             cursor: pointer;
-            background: linear-gradient(to bottom, #a8e063, #56ab2f); /* Verde degradê */
+            background: linear-gradient(to bottom, #81d4fa, #0288d1); /* Degradê azul */
             border: none;
             color: white;
             border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: background 0.3s;
         }
         .button-container button:hover {
-            background: linear-gradient(to bottom, #56ab2f, #a8e063); /* Inverte o degradê ao passar o mouse */
+            background: linear-gradient(to bottom, #0288d1, #81d4fa); /* Inverte o degradê ao passar o mouse */
         }
+        p {
+       font-size: 15px;
+       }
     </style>
 </head>
 <body>
@@ -40,31 +49,28 @@
         </nav>
     </header>
     <main>
-        <br>
         <div class="logo-container">
             <img src="logo.png" alt="Logo do Sistema de Controle de Nível de Caixa D'Água" class="responsive-img">
         </div>
-        <br>
         <div class="button-container">
             <button onclick="location.href='mapa-reservatorio.html'">
-                <h2>ACESSE O SIMULADOR</h2>
+                ACESSE O SIMULADOR
                 <strong>CLIQUE AQUI</strong>
             </button>
             <button onclick="location.href='https://www.canva.com/design/DAGTOZZzeHI/-RYIiteAFSnpWCnxGhQhQw/edit?utm_content=DAGTOZZzeHI&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton'">
-                <h2>Etapas do Projeto</h2>
+                Etapas do Projeto
                 <strong>CLIQUE AQUI</strong>
             </button>
             <button onclick="location.href='https://github.com/eecaetano/water-level-control'">
-                <h2>Código do projeto</h2>
+                Código do projeto
                 <strong>CLIQUE AQUI</strong>
             </button>
         </div>
-    </main><br>
-    <br>
+    </main>
     <footer>
-        <div class="footer-content">
-            <p><h2>© 2024 Caetano AquaControl</h2></p>
-            <p><h3>Desenvolvido por 2ºB TEC D. Sistemas</h3></p>
+        <div class="footer-content"><center>
+            <p>© 2024 Caetano AquaControl.</p>
+            <p>Desenvolvido por 2ºB TEC D. Sistemas</p></center>
         </div>
     </footer>
 </body>
