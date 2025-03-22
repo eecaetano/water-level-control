@@ -22,14 +22,14 @@ function setup() {
     const momentos = [
         { perda: 0, alerta: "" },
         { perda: 5000, alerta: "" },
-        { perda: 5000, alerta: "ALERTA: 50% DA CAPACIDADE" },
-        { perda: 2500, alerta: "" },
-        { perda: 2500, alerta: "ALERTA CRÍTICO: RESERVATÓRIO COM 75%" },
-        { perda: 2500, alerta: "ATENÇÃO!! ALERTA SUPERCRÍTICO" },
+        { perda: 5000, alerta: "Atenção: queda de nível detectada! " },
+        { perda: 2500, alerta: "Atenção: queda de nível detectada!" },
+        { perda: 2500, alerta: "Atenção: Verifique as saídas de água do reservatório!" },
+        { perda: 2500, alerta: "ATENÇÃO: queda de nível pesistente" },
         { perda: 1500, alerta: "" },
         { perda: 1500, alerta: "" },
-        { perda: 1000, alerta: "ATENÇÃO RESERVATÓRIO COM RISCO DE ESGOTAMENTO" },
-        { perda: 2000, alerta: "ALERTA VERMELHO: RESERVATÓRIO ESGOTADO" }
+        { perda: 1000, alerta: "ATENÇÃO: Risco de esgotamento" },
+        { perda: 2000, alerta: "Reservatório Vazio" }
     ];
 
     let index = 0;
